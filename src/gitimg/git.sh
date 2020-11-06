@@ -1,2 +1,2 @@
-echo "running git"
-git
+echo "running shell for git"
+sh

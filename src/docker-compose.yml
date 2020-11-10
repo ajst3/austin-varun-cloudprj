@@ -1,0 +1,19 @@
+services:
+  app:
+    build: webapp
+    image: camper484/autvarunapp
+    environment:
+      - DISPLAY=unix$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+
+  git:
+    build: git
+    image: camper484/autvarungit
+    environment:
+      - DISPLAY=unix$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command:
+      sh

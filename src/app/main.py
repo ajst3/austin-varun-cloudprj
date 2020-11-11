@@ -1,7 +1,40 @@
 """
 Script that runs gui.
 """
+import os
 import tkinter as tk
+from socket import socket, AF_INET, SOCK_STREAM
+
+SERVER_IP   = '0.0.0.0'
+PORT_NUMBER = 5000
+SIZE = 1024
+
+
+class ButtonMapper(object):
+
+    @staticmethod
+    def git():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('git', 8080))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+        os.system("gnome-terminal -x sh")
+
+    @staticmethod
+    def rstudio():
+        pass
+
+    @staticmethod
+    def spyder():
+        pass
+
+    @staticmethod
+    def markdown():
+        # run script by os
+        # or just os.system("./notepad_pp.sh")
+        pass
 
 
 class MainGUI(object):
@@ -22,9 +55,6 @@ class MainGUI(object):
         instructions.insert(tk.END, instrtext)
 
     def add_buttons(self):
-        ntpd = tk.Button(self.root, text="Notepad++",
-            bd='5', command=None)
-        ntpd.pack(side="top")
 
         btn = tk.Button(self.root, text="Rstudio",
             bd='5', command=None)
@@ -39,7 +69,7 @@ class MainGUI(object):
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Git",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.git)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Jupyter Notebook",

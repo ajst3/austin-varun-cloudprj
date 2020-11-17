@@ -12,7 +12,7 @@ class GitRunner(object):
         hostName = "app"
         SERVER_IP   = '0.0.0.0'
         mySocket = socket( AF_INET, SOCK_STREAM )
-        mySocket.bind( (SERVER_IP, 8090) ) # Bind to port 8080
+        mySocket.bind( (SERVER_IP, 8085) ) # Bind to port 8080
         mySocket.listen(5)  # listen for connections
 
         while True:
@@ -20,7 +20,7 @@ class GitRunner(object):
             # recieve the data from t1 which is the socket sending to us
             data = t1.recv(SIZE)
             print("test")
-            os.system("xterm -hold git")
+            os.system("xterm rstudio")
 
 if __name__ == "__main__":
     r = GitRunner()

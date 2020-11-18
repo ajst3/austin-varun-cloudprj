@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   app:
-    build: webapp
     image: camper484/autvarunapp
     environment:
       - DISPLAY=unix$DISPLAY
@@ -13,7 +12,6 @@ services:
 
 
   git:
-    build: git
     image: camper484/autvarungit
     environment:
       - DISPLAY=unix$DISPLAY

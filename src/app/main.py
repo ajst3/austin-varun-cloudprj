@@ -17,24 +17,106 @@ class ButtonMapper(object):
         tmpstr = "hello"
         mySocket = socket( AF_INET, SOCK_STREAM )
         #mySocket.bind((SERVER_IP, 8000))
-        mySocket.connect(('git', 8080))
+        mySocket.connect(('git', 8090))
         print("connected")
         mySocket.send(tmpstr.encode())
-        os.system("gnome-terminal -x sh")
 
     @staticmethod
     def rstudio():
-        pass
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('rstudio', 8085))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
     @staticmethod
     def spyder():
-        pass
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('spyder', 7085))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
     @staticmethod
     def markdown():
-        # run script by os
-        # or just os.system("./notepad_pp.sh")
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('markdown', 8050))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+
+    @staticmethod
+    def ibmsas():
         pass
+
+    @staticmethod
+    def vscode():
+        pass
+
+    @staticmethod
+    def jnotebook():
+        pass
+
+    @staticmethod
+    def orange():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('orange', 7075))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+
+    @staticmethod
+    def aphadoop():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('hadoopwrapper', 7090))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+
+    @staticmethod
+    def apspark():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('spark', 8080))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+
+    @staticmethod
+    def tableau():
+        pass
+
+    @staticmethod
+    def sqube():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('sonar-scanner', 8045))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+
+    @staticmethod
+    def tflow():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('tensorflow', 7080))
+        print("connected")
+        mySocket.send(tmpstr.encode())
+
+    @staticmethod
+    def markdown():
+        tmpstr = "hello"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('markdown', 8050))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
 
 class MainGUI(object):
@@ -57,15 +139,15 @@ class MainGUI(object):
     def add_buttons(self):
 
         btn = tk.Button(self.root, text="Rstudio",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.rstudio)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Spyder",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.spyder)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="IBM SAS",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.ibmsas)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Git",
@@ -73,39 +155,39 @@ class MainGUI(object):
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Jupyter Notebook",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.jnotebook)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Orange",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.orange)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Visual Studio Code IDE",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.vscode)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Apache Hadoop",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.aphadoop)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Apache Spark",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.apspark)
         btn.pack(side="top")
 
-        btn = tk.Button(self.root, text="Tableu",
-            bd='5', command=None)
+        btn = tk.Button(self.root, text="Tableau",
+            bd='5', command=ButtonMapper.tableau)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Sonar Qube and Binaries",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.sqube)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Tensorflow",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.tflow)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Markdown",
-            bd='5', command=None)
+            bd='5', command=ButtonMapper.markdown)
         btn.pack(side="top")
 
 

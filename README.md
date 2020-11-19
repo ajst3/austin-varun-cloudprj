@@ -17,6 +17,9 @@
   5. Run the command: docker-compose up  
     - The docker-compose.yml enables all of our created images to be pulled
     from dockerhub  
+  6. Main GUI will automatically start running, which contains the buttons for
+  each application  
+  7. See instructions below to run each application  
 
 ## Steps to Run Applications  
 #### RStudio  

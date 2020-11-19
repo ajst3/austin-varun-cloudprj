@@ -2,8 +2,8 @@
 
 ## Dependencies:  
   - Docker  
-  - Docker-Compose
-  - Way to allow docker container to run GUI applications:  
+  - Docker-Compose (Requires version 3 at least)
+  - Way to allow docker containers to run GUI applications:  
     - XQuartz (for Windows)  
     - Xming (for Mac OS)  
     - docker-compose file already accounts for Linux  

@@ -50,15 +50,31 @@ class ButtonMapper(object):
 
     @staticmethod
     def ibmsas():
-        pass
+        tempstr = " "
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('ibmsas', 7066))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
     @staticmethod
-    def vscode():
-        pass
+    def atom():
+        # send to atom
+        tempstr = "xterm firefox atom:7070"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('atom', 7070))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
     @staticmethod
     def jnotebook():
-        pass
+        tempstr = "xterm firefox atom:7070"
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('jupyter', 7030))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
     @staticmethod
     def orange():
@@ -89,7 +105,12 @@ class ButtonMapper(object):
 
     @staticmethod
     def tableau():
-        pass
+        tempstr = " "
+        mySocket = socket( AF_INET, SOCK_STREAM )
+        #mySocket.bind((SERVER_IP, 8000))
+        mySocket.connect(('tableau', 7065))
+        print("connected")
+        mySocket.send(tmpstr.encode())
 
     @staticmethod
     def sqube():
@@ -162,8 +183,8 @@ class MainGUI(object):
             bd='5', command=ButtonMapper.orange)
         btn.pack(side="top")
 
-        btn = tk.Button(self.root, text="Visual Studio Code IDE",
-            bd='5', command=ButtonMapper.vscode)
+        btn = tk.Button(self.root, text="Atom IDE",
+            bd='5', command=ButtonMapper.atom)
         btn.pack(side="top")
 
         btn = tk.Button(self.root, text="Apache Hadoop",

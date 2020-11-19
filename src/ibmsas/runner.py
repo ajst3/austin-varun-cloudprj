@@ -8,7 +8,7 @@ class Runner(object):
     def main(self):
         SERVER_IP   = '0.0.0.0'
         mySocket = socket(AF_INET, SOCK_STREAM)
-        mySocket.bind((SERVER_IP, 7070)) # Bind to port 8080
+        mySocket.bind((SERVER_IP, 7066)) # Bind to port 8080
         mySocket.listen(5)  # listen for connections
 
         while True:
@@ -16,7 +16,7 @@ class Runner(object):
             # recieve the data from t1 which is the socket sending to us
             data = t1.recv(1024)
             print("test")
-            os.system("xterm -hold")
+            os.system("xterm -e firefox https://pdcesx20010.sas.com/SASLogon/login")
 
 if __name__ == "__main__":
     r = Runner()

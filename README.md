@@ -13,7 +13,7 @@
   1. Meet all of the dependencies  
   2. Download this repository  
   3. Open a terminal  
-  4. Enter the directory containing the src folder in the repository  
+  4. Enter the directory named src in the repository  
   5. Run the command: docker-compose up  
     - The docker-compose.yml enables all of our created images to be pulled
     from dockerhub  

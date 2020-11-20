@@ -148,7 +148,7 @@ class MainGUI(object):
     def create_window(self):
         self.root = tk.Tk()
         self.root.title("Application Selector")
-        self.root.geometry("800x550")
+        self.root.geometry("1000x750")
 
     def add_labels(self):
         instructions = tk.Text(self.root, height=5, width=52)

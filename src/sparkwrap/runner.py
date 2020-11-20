@@ -16,7 +16,7 @@ class Runner(object):
             # recieve the data from t1 which is the socket sending to us
             data = t1.recv(1024)
             print("test")
-            os.system("xterm -hold spark-shell")
+            os.system("xterm -hold")
 
 if __name__ == "__main__":
     r = Runner()

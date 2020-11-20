@@ -53,7 +53,8 @@
   4. to run hadoop commands: bin/hadoop <hadoop command>  
 #### Apache Spark  
   1. Press button labeled Apache Spark  
-  2. terminal will open with spark-shell running  
+  2. terminal will open  
+  3. enter the command spark-shell to open a spark shell
 #### Tableau  
   1. Press button labeled Tableau  
   2. Firefox browser will open with tableau loaded  

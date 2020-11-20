@@ -61,6 +61,7 @@
   1. Press button labeled Sonar Qube and Binaries  
   2. terminal will open  
   3. to run sonar scanner: sonar-scanner  
+    - to scan a specific dir Dsonar.projectBaseDir=/path_you_want_to_scan
 #### Tensorflow  
   1. Press button labeled Tensorflow  
   2. terminal will open with Tensorflow shell  

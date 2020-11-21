@@ -77,7 +77,7 @@
 #### Tensorflow  
   1. Press button labeled Tensorflow  
   2. terminal will open with Tensorflow shell  
-#### Mardown  
+#### Markdown  
   1. Press button labeled Markdown  
   2. The application retext will open  
     - retext is a Markdown text editor to write and view Markdown files

@@ -15,7 +15,7 @@
   2. Download this repository  
   3. Open a terminal  
   4. Enter the correct directory  
-    - Windows/MAC: enter directory named src/windows_yaml  
+    - Windows: enter directory named src/windows_yaml  
     - Linux: enter directory named src
   5. Run the command: docker-compose up  
     - The docker-compose.yml enables all of our created images to be pulled

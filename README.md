@@ -6,7 +6,7 @@
   - Way to allow docker containers to run GUI applications:  
     - XQuartz (for Mac OS)  
     - Xming (for Windows)
-        - must have Xming configured
+        - must have Xming configured properly
     - docker-compose file already accounts for Linux  
   - Adequate space to have application on machine  
 
@@ -15,7 +15,7 @@
   2. Download this repository  
   3. Open a terminal  
   4. Enter the correct directory
-    - Windows/MAC: enter directory named src/windows_yaml
+    - Windows/MAC: enter directory named src/windows_yaml  
     - Linux: enter directory named src
   5. Run the command: docker-compose up  
     - The docker-compose.yml enables all of our created images to be pulled
@@ -53,7 +53,7 @@
   1. Press button labeled Atom IDE  
   2. Terminal will open  
   3. Type atom into terminal and press enter  
-  4. Application will open
+  4. Application will open  
     - Similarly to RStudio, Xming may not run Atom IDE  
     - You may need another X11 forwarding application  
 #### Apache Hadoop  

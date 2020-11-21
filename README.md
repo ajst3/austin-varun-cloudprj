@@ -14,7 +14,7 @@
   1. Meet all of the dependencies  
   2. Download this repository  
   3. Open a terminal  
-  4. Enter the correct directory
+  4. Enter the correct directory  
     - Windows/MAC: enter directory named src/windows_yaml  
     - Linux: enter directory named src
   5. Run the command: docker-compose up  

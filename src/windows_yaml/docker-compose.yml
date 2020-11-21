@@ -1,0 +1,247 @@
+#version: '3.8'
+version: '3'
+
+services:
+  app:
+    image: camper484/autvarunapp
+    environment:
+      - DISPLAY=$DISPLAY
+    expose:
+      - "8000"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    privileged: true
+
+  tableau:
+    image: dvsmaster/autvaruntableau
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7065"
+    depends_on:
+      - app
+    privileged: true
+
+  ibmsas:
+    image: dvsmaster/autvarunibmsas
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7066"
+    depends_on:
+      - app
+
+  atom:
+    image: dvsmaster/autvarunatom
+    entrypoint: python runner.py
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7070"
+    privileged: true
+    depends_on:
+      - app
+
+  jupyter:
+    image: dvsmaster/autvarunjupyter
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7030"
+    privileged: true
+    depends_on:
+      - app
+
+  jserver:
+    privileged: true
+    image: jupyter/minimal-notebook
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    ports:
+      - "8888:8888"
+    depends_on:
+      - app
+
+  git:
+    privileged: true
+    image: camper484/autvarungit
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "8090"
+    depends_on:
+      - app
+
+  orange:
+    privileged: true
+    image: camper484/autvarunorange
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7075"
+    depends_on:
+      - app
+
+  tensorflow:
+    privileged: true
+    image: camper484/autvaruntensorflow
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7080"
+    depends_on:
+      - app
+
+  spyder:
+    privileged: true
+    image: camper484/autvarunspyderimg
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7085"
+    depends_on:
+      - app
+
+  hadoopwrapper:
+    privileged: true
+    image: camper484/autvarunhadoopwrapper
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "7090"
+    depends_on:
+      - app
+
+  rstudio:
+    privileged: true
+    image: camper484/autvarunrstudio
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "8085"
+    depends_on:
+      - app
+
+  markdown:
+    privileged: true
+    image: camper484/autvarunmarkdown
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    expose:
+      - "8050"
+    depends_on:
+      - app
+
+  spark:
+    privileged: true
+    image: camper484/autvarunsparkwrapper
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    ports:
+      - '8080:8080'
+
+  spark-worker-1:
+    image: docker.io/bitnami/spark:3-debian-10
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+
+  spark-worker-2:
+    image: docker.io/bitnami/spark:3-debian-10
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+
+  sonar-scanner:
+    privileged: true
+    image: camper484/autvarunqubewrapper
+    entrypoint: python runner.py
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /scan
+    links:
+      - sonarqube
+    stdin_open: true
+    tty: true
+    expose:
+      - "8045"
+    depends_on:
+      - app
+      - sonarqube
+
+  sonarqube:
+    image: newtmitch/sonar-server
+    ports:
+      - "9000:9000"
+      - "9092:9092"
